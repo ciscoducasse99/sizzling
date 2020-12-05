@@ -1,0 +1,53 @@
+html{
+  height:100%;
+}
+.user-circle {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: #171717;
+  border-radius: 100px;
+
+  .user-pic {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.order-modal-enter{
+  opacity: 0;
+}
+
+.order-modal-enter-active{
+  opacity: 1;
+  transition: opacity 150ms;
+}
+
+.order-modal-exit {
+  opacity: 1;
+}
+.order-modal-exit-active {
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.food-modal-enter{
+  opacity: 0;
+  transform:translateX(100%);
+}
+
+.food-modal-enter-active{
+  opacity: 1;
+  transform: translateX(0);
+  transition: all ease 150ms;
+}
+
+.food-modal-exit {
+  opacity: 1;
+  transform:translateX(0);
+}
+.food-modal-exit-active {
+  opacity: 0;
+  transform:translateX(-100%);
+  transition: all ease 150ms;
+}

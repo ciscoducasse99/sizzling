@@ -1,0 +1,21 @@
+.wrapper {
+  h5 {
+    color: black;
+  }
+}
+.fullscreen {
+  position: fixed;
+  display: block;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  z-index: 30;
+  background-color: whitesmoke;
+  transition: all 0.2s;
+}
+
+.confirmed-overlay{
+  opacity: .9;
+}
