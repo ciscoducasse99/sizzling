@@ -34,7 +34,7 @@ db.sequelize
     console.log("> DB connected");
   })
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT || PORT, () => {
       console.log(`> Server started on port ${PORT}`);
     });
   });

@@ -38,9 +38,9 @@ const Main = ({ booths, deleteSeating }) => {
     const ordersTotal = [];
 
     customers.map((customer) => {
-      customer.orders.map((order) => {
-        order.items.map((item) => {
-          ordersTotal.push(item.food_price);
+      return customer.orders.map((order) => {
+        return order.items.map((item) => {
+          return ordersTotal.push(item.food_price);
         });
       });
     });
