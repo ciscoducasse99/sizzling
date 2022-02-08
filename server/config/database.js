@@ -4,7 +4,7 @@ const sequelize = new Sequelize(
   process.env.DB_USER,
   process.env.DB_USER_PASSWORD,
   {
-    host: "localhost",
+    host: process.env.DB_HOST,
     dialect: "mysql",
     pool: {
       max: 5,
@@ -35,25 +35,31 @@ db.Menu_Orders = require("../models/Menu_Orders.js")(sequelize, Sequelize);
 // One customer has many orders
 // Many orders has many menu items through menu_orders
 
-db.Booths.hasOne(db.Seatings, {as:'current_seating', foreignKey:'booth_id'})
-db.Seatings.belongsTo(db.Booths, {foreignKey:'booth_id'});
+db.Booths.hasOne(db.Seatings, {
+  as: "current_seating",
+  foreignKey: "booth_id",
+});
+db.Seatings.belongsTo(db.Booths, { foreignKey: "booth_id" });
 
-db.Seatings.hasMany(db.Customers, {as:'customers', foreignKey: "seatings_id" });
-db.Customers.belongsTo(db.Seatings, {foreignKey:'seatings_id'})
+db.Seatings.hasMany(db.Customers, {
+  as: "customers",
+  foreignKey: "seatings_id",
+});
+db.Customers.belongsTo(db.Seatings, { foreignKey: "seatings_id" });
 
 db.Customers.hasMany(db.Orders, { as: "orders", foreignKey: "customer_id" });
-db.Orders.belongsTo(db.Customers, { foreignKey:'customer_id'});
+db.Orders.belongsTo(db.Customers, { foreignKey: "customer_id" });
 
 db.Orders.belongsToMany(db.Menu, {
   as: "items",
   through: db.Menu_Orders,
   foreignKey: "order_id",
-  otherKey: "food_id", 
+  otherKey: "food_id",
 });
 db.Menu.belongsToMany(db.Orders, {
   through: db.Menu_Orders,
   foreignKey: "food_id",
-  otherKey: "order_id", 
+  otherKey: "order_id",
 });
 
 module.exports = db;
