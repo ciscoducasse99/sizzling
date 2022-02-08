@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 5000;
 const db = require("./server/config/database");
 const router = require("./server/routes/index");
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "client/build")));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
