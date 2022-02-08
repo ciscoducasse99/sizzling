@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 db.sequelize
   .sync()
   .then(() => {
-    console.log("> DB connected");
+    console.log(">DB connected");
   })
   .then(() => {
     app.listen(PORT, () => {
