@@ -5,19 +5,18 @@ import * as serviceWorker from "./serviceWorker";
 
 import store from "./store";
 import { Provider } from "react-redux";
-
 import { Route, BrowserRouter, Switch } from "react-router-dom";
+import Loading from "./components/Loading.js";
 
 const User = lazy(() => import("./components/Users/UserApp/index"));
 const Users = lazy(() => import("./components/Users/index"));
 const Host = lazy(() => import("./components/Host/index"));
-const Loading = lazy(() => import("./components/Loading.js"));
 const Entry = lazy(() => import("./components/Entry"));
 const NoMatchPage = lazy(() => import("./components/NoMatchPage.js"));
 const ConfirmLocation = lazy(() => import("./components/ConfirmLocation"));
 
 const routes = (
-  <Suspense fallback={() => <Loading />}>
+  <Suspense fallback={<Loading />}>
     <Provider store={store}>
       <BrowserRouter>
         <Switch>

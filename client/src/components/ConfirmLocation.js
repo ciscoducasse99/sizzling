@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Spinner} from "reactstrap";
+import { Button, Spinner } from "reactstrap";
 import "../App.css";
 
 const ConfirmLocation = () => {
@@ -11,10 +11,10 @@ const ConfirmLocation = () => {
       setLocation(true);
     }, 3000);
 
-    const cleanup=()=>{
-      setLocation(true)
-    }
-    return cleanup
+    const cleanup = () => {
+      setLocation(true);
+    };
+    return cleanup;
   });
 
   return (
@@ -37,6 +37,11 @@ const ConfirmLocation = () => {
               View Menu
             </Button>
           </Link>
+
+          <h6 style={{ color: "red" }} className="text-center mt-5">
+            Note: The images on the next page were scraped from Applebees a
+            while back, so all images will be blank.
+          </h6>
         </div>
       )}
     </div>
